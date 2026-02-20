@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Profile</title>
+</head>
+<body>
+
+<h3>Student Profile</h3>
+
+<div id="profile"></div>
+
+<button onclick="updateStudentProfile(student)">Show Profile</button>
+<button onclick="updateMarks(85)">Update Marks</button>
+
+<script>
+  var student = {
+    name: "Radha",
+    rollNo: 101,
+    marks: 78
+  };
+
+  function updateStudentProfile(studentObj) {
+    document.getElementById("profile").innerHTML =
+      "Name: " + studentObj.name + "<br>" +
+      "Roll No: " + studentObj.rollNo + "<br>" +
+      "Marks: " + studentObj.marks;
+  }
+
+  function updateMarks(newMarks) {
+    student.marks = newMarks;
+    updateStudentProfile(student);
+  }
+</script>
+
+</body>
+</html>

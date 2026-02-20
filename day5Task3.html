@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counter App</title>
+</head>
+<body>
+
+<h3>Counter App</h3>
+
+<p id="counter">0</p>
+
+<button onclick="incrementCounter(1)">Increment</button>
+<button onclick="resetCounter()">Reset</button>
+
+<script>
+  var count = 0; 
+
+  function incrementCounter(step) {
+    count = count + step;
+    document.getElementById("counter").innerHTML = count;
+  }
+
+  function resetCounter() {
+    count = 0;
+    document.getElementById("counter").innerHTML = count;
+  }
+</script>
+
+</body>
+</html>
