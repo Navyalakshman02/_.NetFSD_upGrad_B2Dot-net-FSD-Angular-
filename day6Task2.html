@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Form Validation</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+Name: <input type="text" id="name" onchange="validateName()"><br>
+<span id="nameMsg"></span><br><br>
+
+Email: <input type="text" id="email" onchange="validateEmail()"><br>
+<span id="emailMsg"></span><br><br>
+
+Age: <input type="number" id="age" onchange="validateAge()"><br>
+<span id="ageMsg"></span><br><br>
+
+<button onclick="saveData()">Submit</button>
+
+<script>
+    function validateName() {
+        var name = document.getElementById("name").value;
+        document.getElementById("nameMsg").innerHTML =
+            name === "" ? "Name cannot be empty" : "Valid Name";
+    }
+
+    function validateEmail() {
+        var email = document.getElementById("email").value;
+        document.getElementById("emailMsg").innerHTML =
+            email.includes("@") ? "Valid Email" : "Invalid Email";
+    }
+
+    function validateAge() {
+        var age = document.getElementById("age").value;
+        document.getElementById("ageMsg").innerHTML =
+            age > 18 ? "Age Accepted" : "Age must be greater than 18";
+    }
+
+    function saveData() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var age = document.getElementById("age").value;
+
+        if (name !== "" && email.includes("@") && age > 18) {
+            sessionStorage.setItem("userName", name);
+            sessionStorage.setItem("userEmail", email);
+            sessionStorage.setItem("userAge", age);
+            alert("Data Saved Successfully!");
+        } else {
+            alert("Fix validation errors first");
+        }
+    }
+</script>
+
+</body>
+</html>
