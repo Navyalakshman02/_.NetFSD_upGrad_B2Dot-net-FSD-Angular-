@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback Button</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 30px;
+    }
+    #message {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="feedbackBtn">Submit Feedback</button>
+  <div id="message"></div>
+
+  <script>
+    const btn = document.getElementById("feedbackBtn");
+    const msg = document.getElementById("message");
+
+    btn.addEventListener("click", function () {
+      msg.textContent = "✅ Feedback submitted successfully!";
+    });
+  </script>
+
+</body>
+</html>

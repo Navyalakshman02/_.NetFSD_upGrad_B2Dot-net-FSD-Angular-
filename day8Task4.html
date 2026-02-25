@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Search</title>
+</head>
+<body>
+
+  <input id="search" placeholder="Search product">
+  <ul id="products"></ul>
+  <p id="noResult"></p>
+
+  <script>
+    const items = ["Laptop", "Mobile", "Mouse", "Keyboard", "Charger"];
+    const ul = document.getElementById("products");
+    const input = document.getElementById("search");
+    const msg = document.getElementById("noResult");
+
+    function display(list) {
+      ul.innerHTML = "";
+      list.forEach(item => {
+        ul.innerHTML += `<li>${item}</li>`;
+      });
+    }
+
+    display(items);
+
+    input.addEventListener("input", function () {
+      const value = input.value.toLowerCase();
+      const filtered = items.filter(item =>
+        item.toLowerCase().includes(value)
+      );
+
+      if (filtered.length === 0) {
+        ul.innerHTML = "";
+        msg.textContent = "No Results Found";
+      } else {
+        msg.textContent = "";
+        display(filtered);
+      }
+    });
+  </script>
+
+</body>
+</html>

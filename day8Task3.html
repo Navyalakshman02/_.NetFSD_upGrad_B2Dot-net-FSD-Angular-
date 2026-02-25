@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <style>
+    li.done {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <input id="taskInput" placeholder="Enter task">
+  <button id="addBtn">Add</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    const input = document.getElementById("taskInput");
+    const list = document.getElementById("taskList");
+    const addBtn = document.getElementById("addBtn");
+
+    addBtn.addEventListener("click", function () {
+      if (input.value === "") return;
+
+      list.innerHTML += `
+        <li>
+          <span>${input.value}</span>
+          <button class="delete">❌</button>
+        </li>
+      `;
+      input.value = "";
+    });
+
+    // Event Delegation
+    list.addEventListener("click", function (e) {
+      if (e.target.className === "delete") {
+        e.target.parentElement.remove();
+      } else if (e.target.tagName === "SPAN") {
+        e.target.classList.toggle("done");
+      }
+    });
+  </script>
+
+</body>
+</html>
