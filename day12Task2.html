@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAQ Section</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .faq-question {
+            cursor: pointer;
+            background: #f0f0f0;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background: #e0e0ff;
+        }
+        .active {
+            background: #c0c0ff;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+    <div class="faq-question">1. What is jQuery?</div>
+    <div class="faq-answer">jQuery is a fast and lightweight JavaScript library.</div>
+
+    <div class="faq-question">2. Why use jQuery?</div>
+    <div class="faq-answer">It simplifies DOM manipulation and event handling.</div>
+
+    <div class="faq-question">3. Is jQuery still relevant?</div>
+    <div class="faq-answer">Yes, many legacy systems still use jQuery.</div>
+
+    <div class="faq-question">4. What is slideToggle()?</div>
+    <div class="faq-answer">It toggles visibility with sliding animation.</div>
+
+    <div class="faq-question">5. Can jQuery work without backend?</div>
+    <div class="faq-answer">Yes, it works on the client-side only.</div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+    $(".faq-question").click(function(){
+        $(this).next(".faq-answer").slideToggle();
+        $(this).toggleClass("active");
+    });
+
+});
+</script>
+
+</body>
+</html>

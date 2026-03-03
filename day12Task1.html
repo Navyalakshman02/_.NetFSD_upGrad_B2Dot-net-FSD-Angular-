@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Feedback Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .message { margin-top: 10px; font-weight: bold; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+<h2>Student Feedback Form</h2>
+
+<form id="feedbackForm">
+    <input type="text" id="name" placeholder="Enter Name"><br><br>
+    <input type="email" id="email" placeholder="Enter Email"><br><br>
+    
+    <select id="rating">
+        <option value="">Select Course Rating</option>
+        <option>Excellent</option>
+        <option>Good</option>
+        <option>Average</option>
+        <option>Poor</option>
+    </select><br><br>
+
+    <textarea id="comments" placeholder="Enter Comments"></textarea><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<div id="formMessage"></div>
+
+<script>
+$(document).ready(function(){
+
+    $("#feedbackForm").submit(function(e){
+        e.preventDefault();
+
+        var name = $("#name").val().trim();
+        var email = $("#email").val().trim();
+
+        if(name === "" || email === ""){
+            $("#formMessage")
+                .removeClass("success")
+                .addClass("error message")
+                .text("Please fill in both Name and Email.");
+        } else {
+            $("#formMessage")
+                .removeClass("error")
+                .addClass("success message")
+                .text("Thank you! Your feedback has been submitted successfully.");
+
+            $("#feedbackForm")[0].reset();
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>
